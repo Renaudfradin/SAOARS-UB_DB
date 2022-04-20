@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>home page</h1>
+  <div class="">
+    <h1>404</h1>
   </div>
 </template>
 
