@@ -1,14 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CharacterView from '../views/CharacterView.vue'
-import CharactersView from '../views/CharactersView.vue'
-import WeaponView from '../views/WeaponView.vue'
-import WeaponsView from '../views/WeaponsView.vue'
-import EquipementView from '../views/EquipmentView.vue'
-import EquipementsView from '../views/EquipmentsView.vue'
-import BannerView from '../views/BannerView.vue'
-import BannersView from '../views/BannersView.vue'
-import Notfound from '../views/404.vue'
+import Home from '@/views/Home.vue'
+import Character from '@/views/Character.vue'
+import Characters from '@/views/Characters.vue'
+import Weapon from '@/views/Weapon.vue'
+import Weapons from '@/views/Weapons.vue'
+import Equipement from '@/views/Equipment.vue'
+import Equipements from '@/views/Equipments.vue'
+import Banner from '@/views/Banner.vue'
+import Banners from '@/views/Banners.vue'
+import Ability from '@/views/Ability.vue'
+import Abilitys from '@/views/Abilitys.vue'
+import Notfound from '@/views/404.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,15 +18,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: Home,
       meta: {
         title: 'home'
       }
     },
     {
-      path: '/character',
+      path: '/character/:id',
       name: 'character',
-      component: CharacterView,
+      component: Character,
       meta: {
         title: 'character'
       }
@@ -32,15 +34,15 @@ const router = createRouter({
     {
       path: '/characters',
       name: 'characters',
-      component: CharactersView,
+      component: Characters,
       meta: {
         title: 'characters'
       }
     },
     {
-      path: '/weapon',
+      path: '/weapon/:id',
       name: 'weapon',
-      component: WeaponView,
+      component: Weapon,
       meta: {
         title: 'weapon'
       }
@@ -48,15 +50,15 @@ const router = createRouter({
     {
       path: '/weapons',
       name: 'weapons',
-      component: WeaponsView,
+      component: Weapons,
       meta: {
         title: 'weapons'
       }
     },
     {
-      path: '/equipement',
+      path: '/equipement/:id',
       name: 'equipement',
-      component: EquipementView,
+      component: Equipement,
       meta: {
         title: 'equipement'
       }
@@ -64,15 +66,15 @@ const router = createRouter({
     {
       path: '/equipements',
       name: 'equipements',
-      component: EquipementsView,
+      component: Equipements,
       meta: {
         title: 'equipements'
       }
     },
     {
-      path: '/banner',
+      path: '/banner/:id',
       name: 'banner',
-      component: BannerView,
+      component: Banner,
       meta: {
         title: 'Banner'
       }
@@ -80,9 +82,27 @@ const router = createRouter({
     {
       path: '/banners',
       name: 'banners',
-      component: BannersView,
+      component: Banners,
       meta: {
         title: 'Banners'
+      }
+    },
+    ,
+    {
+      path: '/ability/:id',
+      name: 'ability',
+      component: Ability,
+      meta: {
+        title: 'ability'
+      }
+    },
+    ,
+    {
+      path: '/abilitys',
+      name: 'abilitys',
+      component: Abilitys,
+      meta: {
+        title: 'abilitys'
       }
     },
     {
@@ -97,11 +117,10 @@ const router = createRouter({
       path: '/:catchAll(.*)',
       redirect: '/404'
     }
-
   ]
 })
+
 router.afterEach((to, from) => {
-  //console.log(from);
   document.title = to.meta.title;
 }); 
 
